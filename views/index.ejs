@@ -1,0 +1,83 @@
+<% include partials/header.ejs %>
+<header>
+    <div class="container">
+        <div class="row">
+            <nav class="navigation">
+                <div class="logo">
+
+                </div>
+                <div class="navavigation-item pull-right">
+                    <ul class="links">
+                    <li class="link select"><a href="/">Score Team</a></li>
+                        <li class="link "><a href="/add">Add Team</a></li>
+
+                        <li class="link "><a href="/scorbord">Score board</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="container">
+            <div class="row">
+                <div class="col-md-12" style="margin-top:30px;">
+                <form method="post">
+                    <div id="box">
+                        <div class="box-header">
+                        <h6><i class="fa fa-table"></i>Teams</h6>
+                        </div>
+
+                        <div class="box-body">
+                          <% if (teams.length > 0) {%>
+                            <% if (message != '') { %>
+                                      <p class="text-center text-danger"><%= message %></p>
+                                  <% } %>
+                            <table class='table table-striped'>
+
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th><i class="fa fa-users"></i>Team</th>
+                                        <th><i class="fa fa-table">Score</th>
+                                        <th><i class="fa fa-plus">Add score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <% teams.forEach((team, index) => { %>
+                                    <tr>
+                                        <td><%= team.t_id %></td>
+                                        <td><%= team.Team_name %></td>
+                                        <td>
+                                        <input type="Number"  name="score" placeholder="" class ="score" value="<%= team.team_score %>" >
+
+                                        </td>
+                                        <td>
+                                        <a href="/addone/<%= team.t_id %>" class="btn btn-primary" ><i class="fa fa-plus"></i>1 </a>
+                                        <a href="/addtwo/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>2</a>
+                                        <a href="/addthree/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>3</button>
+                                        </td>
+                                        <td>
+                                        <a href="/tscore/<%= team.t_id %>" target="_blank" class="btn btn-success" onclick="window.open('/tscore/<%= team.t_id %>', '', 'width=1000,height=700');" ><i class="fa fa-screen"></i>View team score</a>
+
+                                        </td>
+
+
+                                    </tr>
+                                  </tbody>
+                                  <% }) %>
+
+                          </table>
+
+
+
+                          <% } else { %>
+                                      <p class="text-center">No players found. Go <a href="/add" >here</a> to add Team.</p>
+                                  <% } %>
+                      </div>
+                  </form>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <% include partials/footer.ejs %>

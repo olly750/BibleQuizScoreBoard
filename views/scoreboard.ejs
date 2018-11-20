@@ -1,0 +1,47 @@
+<% include partials/header.ejs %>
+<header>
+    <div class="container">
+        <div class="row">
+            <nav class="navigation">
+                <div class="logo">
+
+                </div>
+                <div class="navavigation-item pull-right">
+                    <ul class="links">
+                      <li class="link "><a href="/">Score Team</a></li>
+                          <li class="link "><a href="/add">Add Team</a></li>
+
+                          <li class="link select"><a href="/scorbord">Score board</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="col-md-12" style="margin-top:50px;">
+            <div class="row">
+              <% teams.forEach((team, index) => { %>
+                <div class="col-md-3 col-md-2" style="margin-top:30px;float:left;">
+
+                    <div id="box">
+                        <div class="box-header" style="background-color:<%= team.Team_color %>;">
+                        <h6><i class="fa fa-users"></i><%= team.Team_name %></h6>
+                        </div>
+
+                        <div class="box-body" style="text-align: center;padding:0px">
+                            <h1 style="font-size:7em;"><%= team.team_score %></h1>
+                        </div>
+
+                    </div>
+
+                </div>
+<% }) %>
+
+
+
+
+
+
+        </div>
+      </div>
+<% include partials/footer.ejs %>

@@ -1,0 +1,63 @@
+<% include partials/header.ejs %>
+<header>
+    <div class="container">
+        <div class="row">
+            <nav class="navigation">
+                <div class="logo">
+
+                </div>
+                <div class="navavigation-item pull-right">
+                    <ul class="links">
+                    <li class="link "><a href="/">Score Team</a></li>
+                        <li class="link select"><a href="/add">Add Team</a></li>
+
+                        <li class="link "><a href="/scorbord">Score board</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="container">
+
+            <div class="row">
+                <div class="col-md-8" style="margin-top:30px;margin-left:200px;">
+                <form method="post" action="/add" >
+                    <div id="box">
+                        <div class="box-header">
+                        <h6><i class="fa fa-plus"></i>Add team</h6>
+                        </div>
+
+                        <div class="box-body">
+                          <% if (message != '') { %>
+                                    <p class="text-center text-danger"><%= message %></p>
+                                <% } %>
+                            <div class="form-group">
+                                        <label >Team Id</label>
+
+                                    <input type="text" class="form-control " name="tid" value="Team<%= Math.floor((Math.random() * 1000) + 300);   %>"  >
+
+                            </div>
+                            <div class="form-group">
+                                        <label >Team</label>
+                                    <input type="text" class="form-control" name="tname" placeholder="Team Name">
+                            </div>
+                            <div class="form-group">
+                                        <label >Team Color</label>
+                                        <input type="color"  name="tcolor" >
+
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-primary"  name="save"><i class="fa fa-save"></i>Save</button>
+                            <button type="reset" class="btn btn-danger" ><i class="fa fa-trash"></i>Cancel</button>
+                            </div>
+
+
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<% include partials/footer.ejs %>

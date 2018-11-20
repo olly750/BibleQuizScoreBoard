@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 9, 2016, 4:32:40 PM
+    Author     : MUGABO Olly Kevin
+*/
+
+.link-container {
+  
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 5px #333;
+  
+}
+.link-container ul{
+    list-style: none;  
+  display: block;
+}
+
+.link-container ul li{
+  
+  padding: 5px;
+  text-decoration: none;
+  
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  color: blue;
+}
+
+.link-container li  a:hover {
+  
+  text-decoration:none;
+  padding-left: 30px;
+  
+}
+
+.sticky-links {
+  position: fixed;
+  left: 20px;
+  top: 50px; /* how far from the top of the page the item should be pinned */
+}

@@ -1,0 +1,20 @@
+<% include partials/teamscore.ejs %>
+  <% teams.forEach((team, index) => { %>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+    <script type="text/javascript">
+
+       setTimeout(function(){
+
+           location.reload();
+
+       },10);
+
+    </script>
+<header style="background-color:<%= team.Team_color %>">
+          <p><i class="fa fa-users"></i><%= team.Team_name %></p>
+
+</header>
+<div class="score" id="score"><p style="color:#000000;" id="score"><%= team.team_score %></p></div>
+<% }) %>
+<% include partials/footer.ejs %>
