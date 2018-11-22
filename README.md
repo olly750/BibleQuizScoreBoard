@@ -4,3 +4,4 @@ Check the score on a score board
 and view each team score 
 
 Check on that Any Problem Contact Me
+The Database is in the DB folder
