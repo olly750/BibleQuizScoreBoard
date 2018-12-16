@@ -63,7 +63,7 @@ module.exports = {
         });
     },
     ScoreboardPage: (req, res) => {
-        let query = "SELECT * FROM `team`,`team_score` where `team`.`t_id`=`team_score`.`t_id`";
+        let query = "SELECT * FROM `team`,`team_score` where `team`.`t_id`=`team_score`.`t_id` and `team`.`status`='active'";
 
         // execute query
         db.query(query, (err, result) => {
@@ -78,7 +78,7 @@ module.exports = {
     },
     TeamScorPage: (req, res) => {
       let team_id=req.params.id;
-        let query = "SELECT * FROM `team`,`team_score` where `team`.`t_id`=`team_score`.`t_id` and `team`.`t_id`='"+team_id+"'";
+        let query = "SELECT * FROM `team`,`team_score` where `team`.`t_id`=`team_score`.`t_id` and `team`.`t_id`='"+team_id+"' and `team`.`status`='active'";
 
         // execute query
         db.query(query, (err, result) => {
@@ -149,6 +149,46 @@ module.exports = {
         });
 
     },
+    EliminateTeam: (req, res) => {
+        let team_id=req.params.id;
+          let query = "UPDATE `team` set `status`='Deactivated' where `t_id`='"+team_id+"'";
+  
+          // execute query
+          db.query(query, (err, result) => {
+              if (err) {
+                  res.redirect('/');
+              }
+              res.redirect('/');
+              message="Team eliminated";
+              res.render('index.ejs', {
+  
+                  title: "Welcome to BibleQuiz | View Team",
+                  message,
+                  teams: result
+              });
+          });
+  
+      },
+      ActivateTeam: (req, res) => {
+        let team_id=req.params.id;
+          let query = "UPDATE `team` set `status`='Active' where `t_id`='"+team_id+"'";
+  
+          // execute query
+          db.query(query, (err, result) => {
+              if (err) {
+                  res.redirect('/');
+              }
+              res.redirect('/');
+              message="Team eliminated";
+              res.render('index.ejs', {
+  
+                  title: "Welcome to BibleQuiz | View Team",
+                  message,
+                  teams: result
+              });
+          });
+  
+      },
 
 
 };

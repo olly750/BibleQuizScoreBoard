@@ -57,7 +57,12 @@
                                         <a href="/addthree/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>3</button>
                                         </td>
                                         <td>
-                                        <a href="/tscore/<%= team.t_id %>" target="_blank" class="btn btn-success" onclick="window.open('/tscore/<%= team.t_id %>', '', 'width=1000,height=700');" ><i class="fa fa-screen"></i>View team score</a>
+                                        <a href="/tscore/<%= team.t_id %>" target="_blank" class="btn btn-success" onclick="window.open('/tscore/<%= team.t_id %>', '', 'width=1000,height=700');" ><i class="fa fa-table"></i>View team score</a>
+                                        <% if(team.status=== 'Active'){ %>
+                                        <a href="/teamDeactiveted/<%= team.t_id %>"  class="btn btn-danger"  ><i class="fa fa-trash"></i>Deactivate Team</a>
+                                    <% }else{ %>
+                                        <a href="/teamReacitivate/<%= team.t_id %>"  class="btn btn-info"  ><i class="fa fa-edit"></i>Eliminated</a>
+                                    <%}%>
 
                                         </td>
 
