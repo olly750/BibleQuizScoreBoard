@@ -28,7 +28,7 @@ module.exports = {
                     title: ""
                 });
             }else{
-              let addquery="INSERT INTO `team` (`t_id`, `Team_name`, `Team_color`) VALUES ('"+t_id+"', '"+t_name+"', '"+t_color+"')";
+              let addquery="INSERT INTO `team` (`t_id`, `Team_name`, `Team_color`,`status`) VALUES ('"+t_id+"', '"+t_name+"', '"+t_color+"','Active')";
               db.query(addquery,(err,result)=>{
                 if(err)
                 {
