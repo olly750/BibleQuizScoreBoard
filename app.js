@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 const {getHomePage} = require('./routes/index');
-const {addteamPage,addteam,ScoreboardPage,TeamScorPage,addonep,addtwop,addthreeop,EliminateTeam,ActivateTeam} = require('./routes/team');
+const {addteamPage,addteam,ScoreboardPage,TeamScorPage,addonep,addtwop,addthreeop,addfiveop,EliminateTeam,ActivateTeam,nextround} = require('./routes/team');
 
 const port = 3030;
 
@@ -39,9 +39,11 @@ app.get('/tscore/:id',TeamScorPage);
 app.get('/addone/:id',addonep);
 app.get('/addtwo/:id',addtwop);
 app.get('/addthree/:id',addthreeop);
+app.get('/addfive/:id',addfiveop);
 app.post('/add', addteam);
 app.get('/teamDeactiveted/:id', EliminateTeam);
 app.get('/teamReacitivate/:id', ActivateTeam);
+app.get('/nextRound/', nextround);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);

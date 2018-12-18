@@ -38,6 +38,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th><i class="fa fa-users"></i>Team</th>
+                                        <th><i class="fa fa-users"></i>Team Color</th>
                                         <th><i class="fa fa-table">Score</th>
                                         <th><i class="fa fa-plus">Add score</th>
                                     </tr>
@@ -47,14 +48,16 @@
                                     <tr>
                                         <td><%= team.t_id %></td>
                                         <td><%= team.Team_name %></td>
+                                        <td><div style="height: 64px;width: 64px;background-color:<%= team.Team_color %>"></div></td>
                                         <td>
-                                        <input type="Number"  name="score" placeholder="" class ="score" value="<%= team.team_score %>" >
+                                            <%= team.team_score %>
 
                                         </td>
                                         <td>
                                         <a href="/addone/<%= team.t_id %>" class="btn btn-primary" ><i class="fa fa-plus"></i>1 </a>
                                         <a href="/addtwo/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>2</a>
-                                        <a href="/addthree/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>3</button>
+                                        <a href="/addthree/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>3</a>
+                                        <a href="/addfive/<%= team.t_id %>" class="btn btn-primary"><i class="fa fa-plus"></i>5</a>
                                         </td>
                                         <td>
                                         <a href="/tscore/<%= team.t_id %>" target="_blank" class="btn btn-success" onclick="window.open('/tscore/<%= team.t_id %>', '', 'width=1000,height=700');" ><i class="fa fa-table"></i>View team score</a>
@@ -72,6 +75,7 @@
                                   <% }) %>
 
                           </table>
+                          <a href="/nextRound/"  class="btn btn-info"  ><i class="fa fa-forward"></i>Next Round</a>
 
 
 

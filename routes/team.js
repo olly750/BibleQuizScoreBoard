@@ -131,7 +131,7 @@ module.exports = {
 
     },addthreeop: (req, res) => {
       let team_id=req.params.id;
-        let query = "UPDATE `team_score` set `team_score`=`team_score`+2 where `t_id`='"+team_id+"'";
+        let query = "UPDATE `team_score` set `team_score`=`team_score`+3 where `t_id`='"+team_id+"'";
 
         // execute query
         db.query(query, (err, result) => {
@@ -149,6 +149,26 @@ module.exports = {
         });
 
     },
+    addfiveop: (req, res) => {
+        let team_id=req.params.id;
+          let query = "UPDATE `team_score` set `team_score`=`team_score`+5 where `t_id`='"+team_id+"'";
+  
+          // execute query
+          db.query(query, (err, result) => {
+              if (err) {
+                  res.redirect('/');
+              }
+              res.redirect('/');
+              message="One Point Added";
+              res.render('TeamScore.ejs', {
+  
+                  title: "Welcome to BibleQuiz | View Team",
+                  message,
+                  teams: result
+              });
+          });
+  
+      },
     EliminateTeam: (req, res) => {
         let team_id=req.params.id;
           let query = "UPDATE `team` set `status`='Deactivated' where `t_id`='"+team_id+"'";
@@ -171,7 +191,28 @@ module.exports = {
       },
       ActivateTeam: (req, res) => {
         let team_id=req.params.id;
+        
           let query = "UPDATE `team` set `status`='Active' where `t_id`='"+team_id+"'";
+  
+          // execute query
+          db.query(query, (err, result) => {
+              if (err) {
+                  res.redirect('/');
+              }
+              res.redirect('/');
+              message="Team eliminated";
+              res.render('index.ejs', {
+  
+                  title: "Welcome to BibleQuiz | View Team",
+                  message,
+                  teams: result
+              });
+          });
+  
+      },
+      nextround: (req, res) => {
+        let team_id=req.params.id;
+          let query = "UPDATE `team_score` set `team_score`= 0 ";
   
           // execute query
           db.query(query, (err, result) => {
