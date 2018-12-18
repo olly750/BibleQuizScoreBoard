@@ -11,10 +11,10 @@ const {addteamPage,addteam,ScoreboardPage,TeamScorPage,addonep,addtwop,addthreeo
 const port = 3030;
 
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'BibleQuiz'
+    host: 'us-cdbr-iron-east-01.cleardb.net',
+    user: 'b5af08949fc77a',
+    password: 'bc1f6dab',
+    database: 'heroku_953008df3b50404'
 });
 
 db.connect((err) => {
